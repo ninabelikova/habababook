@@ -1,7 +1,16 @@
 <center>
 <h1>HababaBook</h1>
-<h2>Join us.</h2>
-<h2>It'll be worth it in the end</h2>
-<%= link_to "Join us", "#" %><br>
-<%= link_to "Let me in", '#' %>
+
+<% if user_signed_in? %>
+  In as <strong><%= current_user.email %></strong>.
+
+<% else %>
+  <div class="home_content">
+    <h2>Join us.</h2>
+    <h2>It'll be worth it in the end</h2>
+    <%= link_to "Join us", new_user_registration_path  %><br>
+    <%= link_to "Let me in", new_user_session_path %>
+  </div>
+<% end %>
+
 </center>

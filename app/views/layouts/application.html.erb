@@ -13,10 +13,19 @@
       <div id="sidebar" class="col-xs-4 col-md-2">
         <%= render 'pages/sidebar' %>
       </div>
+
       <div id="content" class="col-xs-14 col-md-10">
         <%= render 'pages/header' %>
         <div class="page">
-        <%= yield %>
+          <center>
+          <% if notice %>
+            <p class="alert alert-success"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert alert-danger"><%= alert %></p>
+          <% end %>
+          <%= yield %>
+        </center>
       </div>
       </div>
     </div>

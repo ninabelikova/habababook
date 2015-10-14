@@ -1,11 +1,22 @@
 Rails.application.routes.draw do
+
   root 'pages#home'
 
+  # Static pages
   get 'pages/about'
-
   get 'pages/contact'
-
   get 'pages/help'
+
+  # Account stuff
+
+  devise_for :users, :path => 'accounts'
+
+  # User stuff
+  resources :users, only: [:index, :show] do
+    resources :posts
+  end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
