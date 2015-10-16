@@ -6,15 +6,16 @@ Rails.application.routes.draw do
   get 'pages/about'
   get 'pages/contact'
   get 'pages/help'
+  get 'pages/feed'
 
   # Account stuff
 
   devise_for :users, :path => 'accounts'
 
   # User stuff
-  resources :users, only: [:index, :show] do
-    resources :posts
-  end
+  resources :users, only: [:index, :show]
+  resources :posts, only: [:create, :destroy]
+
 
 
 

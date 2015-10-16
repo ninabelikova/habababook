@@ -1,10 +1,12 @@
 <div role="navigation" id="sidebar">
   <ul class="nav nav-pills nav-stacked">
-    <li><%= link_to "me page", edit_user_registration_path, role: "presentation" %></li>
-    <li><%= link_to "feed", "#", role: "presentation"  %></li>
-    <li><%= link_to "friends", "#", role: "presentation" %></li>
     <% if user_signed_in? %>
+    <li><%= link_to "me page", "#", role: "presentation" %></li>
+    <li><%= link_to "feed", pages_feed_path, role: "presentation"  %></li>
+    <li><%= link_to "friends", "#", role: "presentation" %></li>
+    <li><%= link_to "settings", edit_user_registration_path, role: "presentation" %></li>
     <li><%= link_to "let me out", destroy_user_session_path, method: :delete, role: "presentation" %></li>
+
     <% end %>
 
   </ul>
