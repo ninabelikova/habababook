@@ -14,5 +14,11 @@
                                            data: { confirm: "You sure?"} %>
     <% end %>
   </span>
+
+  <span class="approvals">
+    <%= render 'approvals/approval_button', post: post %>
+    <%= pluralize(post.approvals.size, "approval") %>
+  </span>
+
 </li>
 </div>

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'pages#home'
 
   # Static pages
@@ -15,6 +14,7 @@ Rails.application.routes.draw do
   # User stuff
   resources :users, only: [:index, :show]
   resources :posts, only: [:create, :destroy]
+  resources :approvals, only: [:create, :destroy]
 
 
 

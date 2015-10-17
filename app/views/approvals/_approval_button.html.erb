@@ -1,0 +1,14 @@
+<div class="button">
+<% if like = current_user.approvals.find_by(post_id: post.id) %>
+    <%= form_for like, :html => { :method => :delete },
+                       :remote => true do |f| %>
+      <%= f.submit "disapprove" %>
+    <% end %>
+<% else %>
+  <%= form_for current_user.approvals.build(:post_id => post.id) do |f| %>
+    <%= f.hidden_field :post_id %>
+    <%= f.hidden_field :user_id %>
+    <%= f.submit "approve" %>
+  <% end %>
+<% end %>
+</div>
